@@ -1,42 +1,58 @@
-<div class = "container"> 
-	<div class = "well">
-	<div class = "page-header">
-  <h3 class = "new property">New Property</h3>
+<% content_for :title, "New Property" %>
+<div class="row">
+
+  <fieldset>
+    <legend><h1>New Property</h1></legend>
+     <div class="large-6 columns">
+
+<%= form_for @property do |property_form| %>
+    <%= property_form.label :address %> 
+    <%= property_form.text_field :address%> 
+    
+
+    
+    <%= property_form.label :postal_code %>
+    <%= property_form.text_field :postal_code%>
+    
+
+    
+    <%= property_form.label "Province" %>
+    <%= property_form.text_field :province_state%>
+    
+
+    
+    <%= property_form.label :country %>
+    <%= property_form.text_field :country%>
+    
+
+    
+    <%= property_form.label "Number of bathrooms?" %>
+    <%= property_form.text_field :bathrooms%>
+    
+
+    
+    <%= property_form.label "Number of bedrooms?" %> 
+    <%= property_form.text_field :bedrooms%>
+    
+
+
+    <%= property_form.label "Furnished?" %> 
+    <%= property_form.text_field :furnished?%> 
+
+    <%= property_form.label "Price of Rent" %> 
+    <%= property_form.text_field :price%>
+  </div>
+
+  <div class="large-6 columns">
+
+  </div>
+<%= property_form.submit class: 'button expand'%>
+</fieldset>
+  
 </div>
- 	
-	<%= form_for @property do |property_form| %>
-  	<%= property_form.label :address %> <br>
-  	<%= property_form.text_field :address%><br>
-  
-  	<%= property_form.label :postal_code %> <br>
-  	<%= property_form.text_field :postal_code%> <br>
-  
-  	<%= property_form.label :province_state %> <br>
-  	<%= property_form.text_field :province_state%><br>
-  
-  	<%= property_form.label :country %> <br>
-  	<%= property_form.text_field :country%><br>
-  
-  	<%= property_form.label "Number of bathrooms?" %> <br>
-  	<%= property_form.text_field :bathrooms%><br>
 
-  	<%= property_form.label "Number of bedrooms?" %> <br>
-  	<%= property_form.text_field :bedrooms%><br>
   
-    <%= property_form.label "Furnished?" %> <br>
-    <%= property_form.text_field :furnished?%><br>
-
-    <%= property_form.label "Price of Rent" %> <br>
-    <%= property_form.text_field :price%><br>
-
-
-   
-  <%= property_form.submit%>
   
 
   <% end %>
 
-		
-	</div>
-
-</div> 

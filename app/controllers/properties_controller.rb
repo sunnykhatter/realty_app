@@ -1,6 +1,6 @@
 class PropertiesController < ApplicationController
 	def index
-
+		@properties = Property.all
 	end
 
 	def show
@@ -21,7 +21,7 @@ class PropertiesController < ApplicationController
 	end
 
 	def update
-		property = Property.find(property_params)
+		property = Property.find(params[:id])
 		property.update_attributes!(property_params)
 	end
 
@@ -33,8 +33,8 @@ class PropertiesController < ApplicationController
 
 private
 	def property_params
-	params.require(:property).permit(:address, :postal_code, :province, :country, :square_feet, 
-		:bathrooms, :bedrooms, :price, :furnished?, :utilities?, :description, :city, :laundry,)
+	params.require(:property).permit(:address, :postal_code, :province_state, :country, :bathrooms, :bedrooms, :price, 
+		:furnished?, :utilities?, :description)
 	end
 
 end

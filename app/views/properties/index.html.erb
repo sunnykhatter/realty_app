@@ -1,0 +1,6 @@
+<div class="row">
+	<br>
+  <% @properties.each do |property|%>
+	<%= link_to property.address, property_path(property) %><br>
+	<% end %>
+</div>

@@ -1,2 +1,6 @@
-<h1><%=@property.address.titleize %></h1>
-<h2><%=@property.postal_code %></h2>
+<% content_for :title, @property.address %>
+<div class="row">
+
+<h1><%=@property.address %></h1>
+
+</div>
