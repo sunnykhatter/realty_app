@@ -41,10 +41,14 @@
 
     <%= property_form.label "Price of Rent" %> 
     <%= property_form.text_field :price%>
+
+
+
+
   </div>
 
   <div class="large-6 columns">
-
+        <%= property_form.file_field :image %>
   </div>
 <%= property_form.submit class: 'button expand'%>
 </fieldset>
