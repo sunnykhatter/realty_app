@@ -35,7 +35,6 @@
     <%= property_form.text_field :bedrooms%>
     
 
-
     <%= property_form.label "Furnished?" %> 
     <%= property_form.text_field :furnished?%> 
 
@@ -44,7 +43,17 @@
   </div>
 
   <div class="large-6 columns">
+       <%= property_form.label "Utilities" %> 
+    <%= property_form.text_field :utilities?%>
 
+    <%= property_form.label "Description" %> 
+    <%= property_form.text_field :description%>
+
+     <%= property_form.label "Price" %> 
+    <%= property_form.text_field :price%>
+
+    <%= property_form.label "Square Feet" %> 
+    <%= property_form.text_field :square_feet%>
   </div>
 <%= property_form.submit class: 'button expand'%>
 </fieldset>
