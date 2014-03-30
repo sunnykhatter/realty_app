@@ -1,6 +1,8 @@
 class Property < ActiveRecord::Base
 
 before_save :titleize_address
+geocoded_by :address
+after_validation :geocode
 
 private
 
