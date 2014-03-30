@@ -9,44 +9,86 @@
     <%= property_form.label :address %> 
     <%= property_form.text_field :address%> 
     
-
+  <%= property_form.label :city %>
+    <%= property_form.text_field :city %>
     
     <%= property_form.label :postal_code %>
     <%= property_form.text_field :postal_code%>
-    
-
-    
+  
     <%= property_form.label "Province" %>
-    <%= property_form.text_field :province_state%>
-    
-
+<%= property_form.select :province_state, options_for_select(["Quebec"])%>
     
     <%= property_form.label :country %>
-    <%= property_form.text_field :country%>
-    
+<%= property_form.select :province_state, options_for_select(["Canada"])%>
 
-    
+
+
+  <div class="row collapse">
     <%= property_form.label "Number of bathrooms?" %>
-    <%= property_form.text_field :bathrooms%>
+
+        <div class="small-9 columns">
+               <%= property_form.select :bathrooms, 
+               options_for_select((1..10).to_a)  %>
+
+        </div>
+        <div class="small-3 columns">
+          <span class="postfix">Bathrooms</span>
+        </div>
+      </div>
+
+  <div class="row collapse">
+    <%= property_form.label "Number of bedrooms?" %>
+
+        <div class="small-9 columns">
+               <%= property_form.select :bedrooms, 
+               options_for_select((1..10).to_a)  %>
+
+        </div>
+        <div class="small-3 columns">
+          <span class="postfix">Bedrooms</span>
+        </div>
+      </div>
     
 
-    
-    <%= property_form.label "Number of bedrooms?" %> 
-    <%= property_form.text_field :bedrooms%>
-    
-
-
-    <%= property_form.label "Furnished?" %> 
-    <%= property_form.text_field :furnished?%> 
-
-    <%= property_form.label "Price of Rent" %> 
-    <%= property_form.text_field :price%>
   </div>
 
   <div class="large-6 columns">
+        <%= property_form.label "Price of Rent" %> 
+    <%= property_form.text_field :price%>
+
+      <%= property_form.label "Square Footage" %> 
+    <%= property_form.text_field :square_feet%>
+
+
+    <%= property_form.label "Furnished?" %> 
+    <%= property_form.select :furnished, options_for_select([["Yes", 1],["No", 0]]), :prompt => 'Select One' %>
+
+     <%= property_form.label "Utilities" %> 
+    <%= property_form.select :utilities?, options_for_select([["Yes", 1],["No", 0]]), :prompt => 'Select One' %>
+
+    <%= property_form.label "Move in Date" %> 
+            <%= property_form.date_field :move_in_date%> 
+
+
+        <div class="row collapse">
+           <%= property_form.label :minimum_lease_duration %>
+
+        <div class="small-9 columns">
+               <%= property_form.select :minimum_lease_duration, options_for_select((1..36).to_a)  %>
+
+        </div>
+        <div class="small-3 columns">
+          <span class="postfix">Months</span>
+        </div>
+      </div>
+   
+    <%= property_form.label "Description" %> 
+    <%= property_form.text_field :description, :class => "large-12 columns" %>
+
 
   </div>
 <%= property_form.submit class: 'button expand'%>
+  <% end %>
 </fieldset>
   
 </div>
@@ -54,5 +96,5 @@
   
   
 
-  <% end %>
+
 
