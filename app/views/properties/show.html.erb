@@ -1,6 +1,77 @@
 <% content_for :title, @property.address %>
+<br>
+<%= javascript_include_tag "properties"%>
 <div class="row">
 
-<h1><%=@property.address %></h1>
+  <h1><%=@property.address %></h1>
+  <h3><small><%=@property.country%></small></h3>
+
+
+
+
+</div>
+<div class="row">
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+ <style>
+      #map_canvas {
+      	height: 300px;
+        width: 100%;
+      }
+    </style>
+
+
+<script type="text/javascript">
+function initialize() {
+
+  var latitude = <%=@property.latitude%>
+  var longitude = <%=@property.longitude%>
+  var myLatlng = new google.maps.LatLng(latitude,longitude);
+  var mapOptions = {
+    zoom: 16,
+    center: myLatlng
+  }
+  var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+  var map_options = {
+          center: myLatlng,
+          zoom: 16,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+  var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'Hello World!'
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);</script>
+
+
+
+<div id="map_canvas"></div>
+
+
+
+<br>
+<div class="row">
+  <div class="small-3 columns">
+  	<h4>Info</h4>
+  	<ul>
+  <li>$<%= @property.price%> a month</li>
+  <li> <%= @furnished%></li>
+  <li> Bathrooms: <%= @property.bathrooms%></li>
+  <li> Bedrooms: <%= @property.bedrooms%></li>
+  <li> Move in Date: <%= @property.move_in_date %> </li>
+  <li>Square Feet: <%= @property.square_feet %> </li>
+  <li>Minimum Lease Duration: <%= @property.minimum_lease_duration%> months </li>
+  </ul>
+
+  </div>
+  <div class="small-9 columns">
+  <h4>Description</h4>
+  <%= @property.description%>
+  </div>
+
+</div>
 
 </div>

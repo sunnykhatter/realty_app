@@ -5,6 +5,7 @@ class PropertiesController < ApplicationController
 
 	def show
 		@property = Property.find(params[:id])
+		@furnished = @property.furnished ? "Furnished!" : "Not Furnished"
 	end
 
 	def new
