@@ -1,17 +1,36 @@
 <% content_for :title, @property.address %>
+
 <br>
-<%= javascript_include_tag "properties"%>
-<div class="row">
+<div class="row glass">
+<div class = "row">
+  <div class="small-10 columns" id="background">
+  	  <h1><%=@property.address %> </h1>
 
-  <h1><%=@property.address %></h1>
-  <h3><small><%=@property.country%></small></h3>
+  </div>
 
 
-
+<div class="small-2 columns">
+<h1>
+<small class = "ddown">
+<a data-dropdown="drop2">Contact</a>
+<div id="drop2" data-dropdown-content class="f-dropdown content ddown">
+  <p>Some text that people will think is awesome! Some text that people will think is awesome! Some text that people will think is awesome!</p>
+</div>
+</h1>
 
 </div>
+
+
+  </small>
+
+  </h1>
+
+</div>
+
+</div>
+</div>
+<br>
 <div class="row">
-<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
  <style>
       #map_canvas {
@@ -20,8 +39,9 @@
       }
     </style>
 
-
-<script type="text/javascript">
+<script src=""></script>
+<%= javascript_include_tag('https://maps.googleapis.com/maps/api/js?sensor=false') %>
+<script>
 function initialize() {
 
   var latitude = <%=@property.latitude%>
@@ -47,14 +67,18 @@ function initialize() {
 google.maps.event.addDomListener(window, 'load', initialize);</script>
 
 
-
+</div>
 <div id="map_canvas"></div>
 
 
 
 <br>
 <div class="row">
+<h4>Photos</h4>
+	</div>
+<div class="row">
   <div class="small-3 columns">
+  
   	<h4>Info</h4>
   	<ul>
   <li>$<%= @property.price%> a month</li>
@@ -75,3 +99,4 @@ google.maps.event.addDomListener(window, 'load', initialize);</script>
 </div>
 
 </div>
+
