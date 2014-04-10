@@ -45,7 +45,7 @@
         </div>
         <div class="small-3 columns">
           <span class="postfix">Bedrooms</span>
-        </div>
+        </div>s
       </div>
     
 
@@ -85,6 +85,10 @@
    
     <%= property_form.label "Description" %> 
     <%= property_form.text_field :description, :class => "large-12 columns" %>
+
+    <%= property_form.fields_for :photos do |builder| %>
+        <%= builder.file_field :image %>
+    <% end %>
 
   </div>
 <%= property_form.submit class: 'button expand'%>

@@ -54,6 +54,10 @@
 <br>
 <div class="row">
 <h4>Photos</h4>
+  <% @property.photos.each do |photo|%>
+  <%= image_tag photo.image_url %>
+  <% end %>
+
 	</div>
 <div class="row">
   <div class="small-3 columns">

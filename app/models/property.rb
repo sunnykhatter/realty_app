@@ -1,8 +1,9 @@
 class Property < ActiveRecord::Base
-
+has_many :photos
 before_save :titleize_address
 geocoded_by :full_address
 after_validation :geocode
+accepts_nested_attributes_for :photos
 
 private
 

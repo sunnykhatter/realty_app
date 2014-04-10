@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140330021134) do
+ActiveRecord::Schema.define(version: 20140402030522) do
+
+  create_table "photos", force: true do |t|
+    t.integer  "property_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image"
+  end
 
   create_table "properties", force: true do |t|
     t.string   "address"
@@ -27,7 +34,6 @@ ActiveRecord::Schema.define(version: 20140330021134) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image"
     t.boolean  "furnished"
     t.string   "city"
     t.date     "move_in_date"
