@@ -11,13 +11,18 @@ class PropertiesController < ApplicationController
 	def new
 		@property = Property.new
 		@property.photos.build
-		@property.photos.build
-		@property.photos.build
+
+
 	end
 
 	def create
 		@property = Property.create(property_params)
 		if @property.save
+			if params[:images]
+				params[:images].each {|image| 
+					@property.photos.create(image: image)
+				}
+			end
 			redirect_to property_path(@property)
 		else
 			render "new"

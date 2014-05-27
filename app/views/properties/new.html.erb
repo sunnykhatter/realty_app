@@ -5,7 +5,7 @@
     <legend><h1>New Property</h1></legend>
      <div class="large-6 columns">
 
-<%= form_for @property do |property_form| %>
+<%= form_for @property, :html => {:multipart => true}  do |property_form| %>
     <%= property_form.label :address %> 
     <%= property_form.text_field :address%> 
     
@@ -45,7 +45,7 @@
         </div>
         <div class="small-3 columns">
           <span class="postfix">Bedrooms</span>
-        </div>s
+        </div>
       </div>
     
 
@@ -86,9 +86,9 @@
     <%= property_form.label "Description" %> 
     <%= property_form.text_field :description, :class => "large-12 columns" %>
 
-    <%= property_form.fields_for :photos do |builder| %>
-        <%= builder.file_field :image %>
-    <% end %>
+   
+     <%= file_field_tag "images[]", type: :file, multiple: true %>
+   
 
   </div>
 <%= property_form.submit class: 'button expand'%>

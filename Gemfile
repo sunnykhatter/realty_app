@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 1.2'
 gem 'foundation-rails'
 gem 'geocoder'
 gem 'carrierwave'
+gem "rmagick"
+gem 'jquery-fileupload-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

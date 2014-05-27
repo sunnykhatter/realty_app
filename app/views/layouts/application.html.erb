@@ -6,6 +6,13 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "Realty-App" %></title>
 
+    
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
     <nav class="top-bar" data-topbar>
   <ul class="title-area">
     <li class="name">
@@ -28,16 +35,29 @@
     <!-- Left Nav Section -->
    
   </section>
-</nav>	
-
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= csrf_meta_tags %>
-  </head>
-
-  <body>
+</nav>  
 
     <%= yield %>
-    <%= javascript_include_tag "application" %>
+
   </body>
+      <%= javascript_include_tag "application" %>
+<div class = "row">
+<footer class="footer">
+  <small>
+    <a href="http://railstutorial.org/">Rails Tutorial</a>
+    by Michael Hartl
+  </small>
+  <nav>
+    <ul>
+      <li><%= link_to "About",   '#' %></li>
+      <li><%= link_to "Contact", '#' %></li>
+      <li><a href="http://news.railstutorial.org/">News</a></li>
+    </ul>
+  </nav>
+</footer>
+
+
+
+</div>
+
 </html>

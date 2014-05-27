@@ -1,7 +1,8 @@
 <% content_for :title, @property.address %>
-
-<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?sensor=false", "http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js",  "map.js"%>
-
+<head>
+  <%= javascript_include_tag "http://code.jquery.com/jquery-1.9.1.min.js", "https://maps.googleapis.com/maps/api/js?key=AIzaSyA6bd_nRbC9Ca3lUFQqaOl6BSigjryhiFk&sensor=true"%>
+</head>
+<!-- , "map.js" -->
 <script id="property" type="text/json">
     <%= @property.to_json %>
 </script>
@@ -17,12 +18,8 @@
 
 
 <div class="small-2 columns">
-<h1>
-<small class = "data-dropdownn">
-<a class = "button" data-dropdown="drop2">Contact</a>
-<div id="drop2" data-dropdown-content class="f-dropdown content ddown">
-  <p>Some text that people will think is awesome! Some text that people will think is awesome! Some text that people will think is awesome!</p>
-</div>
+<h1 class = "subheader">
+$<%= @property.price%>
 </h1>
 
 </div>
@@ -54,11 +51,17 @@
 <br>
 <div class="row">
 <h4>Photos</h4>
+  <ul class="clearing-thumbs" data-clearing>
   <% @property.photos.each do |photo|%>
-  <%= image_tag photo.image_url %>
+    <li><a href=<%= photo.image_url %>> <img src=<%=photo.image_url(:thumb) %>></a></li>
+
   <% end %>
+</ul>
+
 
 	</div>
+
+</br>
 <div class="row">
   <div class="small-3 columns">
   
@@ -82,3 +85,4 @@
 </div>
 
 </div>
+
