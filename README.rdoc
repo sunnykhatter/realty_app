@@ -2,7 +2,8 @@ Project Details:
 This was a side project for landlords to put up for rent.
 - User authentication
 - PhotoUpload
-- 
+- View Isolation based on user type (landlord, renter, etc)
 
-Stack: Ruby on Rails, Twitter Bootstrap
+
+Stack: Ruby on Rails, Twitter Bootstrap, PostgreSQL Database.
 
